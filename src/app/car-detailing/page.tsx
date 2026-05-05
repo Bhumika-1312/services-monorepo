@@ -1,0 +1,36 @@
+import Navbar from "./components/layout/Navbar";
+import Hero from "./components/hero/Hero";
+import CTASection from "./sections/home/CTASection";
+import OurProcess from "./sections/home/OurProcess";
+import ShowcaseSection from "./sections/home/ShowcaseSection";
+import PricingSection from "./sections/home/PricingSection";
+import ContactSection from "./sections/home/ContactSection";
+import WorkSection from "./sections/home/WorkSection";
+
+export default function Home() {
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+      <CTASection />
+      <OurProcess />
+      <ShowcaseSection
+        image="/images/car/wheels.jpg"
+        title="Wheels"
+        step="03"
+        description="Deep wheel decontamination that enhances both appearance and longevity."
+      />
+
+      <ShowcaseSection
+        image="/images/car/windows.jpg"
+        title="Windows"
+        step="04"
+        description="Crystal-clear glass treatment for improved visibility and shine."
+      />
+
+      <PricingSection />
+      <ContactSection />
+      <WorkSection />
+    </div>
+  );
+}
