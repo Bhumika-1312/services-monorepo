@@ -18,7 +18,7 @@ const base = "/cleaning-services";
 const navItems = [
   { label: "Home", href: `${base}` },
   { label: "Services", href: `${base}/services` },
-  { label: "Booking", href: `${base}/pricing` },
+  { label: "Booking", href: `${base}/booking` },
   { label: "About", href: `${base}/about` },
   { label: "Contact", href: `${base}/contact` },
 ];
