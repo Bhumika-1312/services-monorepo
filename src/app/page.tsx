@@ -11,6 +11,7 @@ export default function Home() {
       <Box sx={{ display: "flex", gap: 4 }}>
         <Link href="/cleaning-services">Cleaning Services</Link>
         <Link href="/car-detailing">Car Detailing</Link>
+        <Link href="/cleaning-booking">Cleaning Booking</Link>
       </Box>
     </Container>
   );

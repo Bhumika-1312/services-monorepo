@@ -52,28 +52,79 @@ export default function BookingPage() {
 }
 
 function StepHeader({ step }: any) {
-  const steps = ["Service", "Surface & Condition", "Add-ons", "Schedule"];
+  const steps = [
+    "Service",
+    "Surface & Condition",
+    "Add-ons",
+    "Schedule",
+  ];
 
   return (
-    <Box sx={{ mb: 5 }}>
-      <Stack direction="row" spacing={3} sx={{ alignItems: "center", flexWrap: "wrap" }}>
+    <Box
+      sx={{
+        mb: {
+          xs: 5,
+          md: 7,
+        },
+
+        width: "100%",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+
+          overflowX: "auto",
+
+          pb: 1,
+
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        }}
+      >
         {steps.map((label, i) => {
           const active = i + 1 <= step;
 
           return (
-            <Stack key={i} direction="row" spacing={1} sx={{ alignItems: "center" }}>
+            <Box
+              key={i}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+
+                minWidth: "fit-content",
+
+                flex: 1,
+              }}
+            >
               <Box
                 sx={{
-                  width: 30,
-                  height: 30,
+                  width: 28,
+                  height: 28,
+
                   borderRadius: "50%",
-                  background: active ? "#2563EB" : "#E5E7EB",
-                  color: active ? "#fff" : "#6B7280",
-                  fontSize: "13px",
-                  fontWeight: 600,
+
+                  background:
+                    active
+                      ? "#2563EB"
+                      : "#E5E7EB",
+
+                  color:
+                    active
+                      ? "#fff"
+                      : "#6B7280",
+
+                  fontSize: "12px",
+                  fontWeight: 700,
+
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+
+                  flexShrink: 0,
                 }}
               >
                 {i + 1}
@@ -81,9 +132,22 @@ function StepHeader({ step }: any) {
 
               <Typography
                 sx={{
-                  fontSize: "14px",
-                  fontWeight: active ? 600 : 400,
-                  color: active ? "#2563EB" : "#6B7280",
+                  ml: 1,
+
+                  fontSize: {
+                    xs: "12px",
+                    md: "13px",
+                  },
+
+                  fontWeight:
+                    active ? 600 : 500,
+
+                  color:
+                    active
+                      ? "#2563EB"
+                      : "#9CA3AF",
+
+                  whiteSpace: "nowrap",
                 }}
               >
                 {label}
@@ -92,19 +156,41 @@ function StepHeader({ step }: any) {
               {i !== steps.length - 1 && (
                 <Box
                   sx={{
-                    width: 40,
-                    height: "2px",
-                    background: i + 1 < step ? "#2563EB" : "#E5E7EB",
-                    mx: 1,
+                    flex: 1,
+
+                    minWidth: {
+                      xs: 40,
+                      md: 90,
+                    },
+
+                    height: "1px",
+
+                    background:
+                      i + 1 < step
+                        ? "#2563EB"
+                        : "#E5E7EB",
+
+                    mx: {
+                      xs: 1.5,
+                      md: 2,
+                    },
                   }}
                 />
               )}
-            </Stack>
+            </Box>
           );
         })}
-      </Stack>
+      </Box>
 
-      <Typography sx={{ fontSize: "12px", color: "#6B7280", mt: 1 }}>
+      <Typography
+        sx={{
+          mt: 1.5,
+
+          fontSize: "11px",
+
+          color: "#6B7280",
+        }}
+      >
         Step {step} of 4
       </Typography>
     </Box>
@@ -136,37 +222,54 @@ function Step1({ onSelect }: any) {
   ];
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Box sx={{ width: "100%", maxWidth: "1160px" }}>
-        <Typography sx={{ fontWeight: 600, mb: 4, fontSize: "16px" }}>
-          1. Select service
-        </Typography>
-      </Box>
+    <Box sx={{ width: "100%" }}>
+      <Typography
+        sx={{
+          fontWeight: 700,
+          mb: 4,
+          fontSize: "18px",
+          color: "#111827",
+        }}
+      >
+        1. Select service
+      </Typography>
 
       <Box
         sx={{
           width: "100%",
-          maxWidth: "1160px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          maxWidth: "1180px",
+          mx: "auto",
+
+          display: "grid",
+
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+          },
+
+          gap: "24px",
+
+          justifyItems: "center",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            gap: "24px",
-            justifyContent: "center",
-          }}
-        >
-          {services.slice(0, 3).map((s) => (
-            <ServiceCard key={s.title} data={s} onClick={onSelect} />
-          ))}
-        </Box>
-
-        <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
-          <ServiceCard data={services[3]} onClick={onSelect} />
-        </Box>
+        {services.map((service, index) => (
+          <Box
+            key={service.title}
+            sx={{
+              ...(index === 3 && {
+                gridColumn: {
+                  lg: "2 / 3",
+                },
+              }),
+            }}
+          >
+            <ServiceCard
+              data={service}
+              onClick={onSelect}
+            />
+          </Box>
+        ))}
       </Box>
     </Box>
   );
@@ -177,40 +280,98 @@ function ServiceCard({ data, onClick }: any) {
     <Box
       onClick={onClick}
       sx={{
-        width: "373px",
+        width: "100%",
+        maxWidth: "373px",
+        minWidth: "373px",
+
         height: "159px",
-        p: 3,
+
         borderRadius: "14px",
+
         background: "#F9F9F9",
+
+        px: "24px",
+        py: "20px",
+
         display: "flex",
-        justifyContent: "space-between",
         alignItems: "center",
+        justifyContent: "space-between",
+
         cursor: "pointer",
-        transition: "0.2s",
-        flexShrink: 0,
+
+        transition: "all 0.25s ease",
+
         "&:hover": {
           transform: "translateY(-3px)",
-          boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+          boxShadow:
+            "0 10px 25px rgba(0,0,0,0.06)",
+        },
+
+        "@media (max-width: 450px)": {
+          minWidth: "100%",
+          height: "auto",
         },
       }}
     >
-      <Box sx={{ maxWidth: "65%" }}>
-        <Typography sx={{ fontWeight: 600, mb: 1 }}>
-          {data.title}
-        </Typography>
+      <Box
+        sx={{
+          width: "58%",
 
-        <Typography sx={{ fontSize: "12px", color: "#6B7280", mb: 2 }}>
-          {data.desc}
-        </Typography>
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+
+          height: "100%",
+        }}
+      >
+        <Box>
+          <Typography
+            sx={{
+              fontSize: "20px",
+              fontWeight: 700,
+              lineHeight: 1.2,
+              color: "#111827",
+              mb: 1,
+            }}
+          >
+            {data.title}
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: "13px",
+              color: "#6B7280",
+              lineHeight: 1.7,
+            }}
+          >
+            {data.desc}
+          </Typography>
+        </Box>
 
         <Button
-          size="small"
           sx={{
-            textTransform: "none",
-            borderRadius: "20px",
+            width: "110px",
+            height: "38px",
+
+            mt: 2,
+
+            borderRadius: "999px",
+
             background: "#fff",
+
             color: "#111827",
-            "&:hover": { background: "#E5E7EB" },
+
+            fontSize: "12px",
+            fontWeight: 600,
+
+            textTransform: "none",
+
+            boxShadow:
+              "0 2px 10px rgba(0,0,0,0.06)",
+
+            "&:hover": {
+              background: "#fff",
+            },
           }}
         >
           Book Now
@@ -220,11 +381,14 @@ function ServiceCard({ data, onClick }: any) {
       <Box
         component="img"
         src={data.img}
+        alt={data.title}
         sx={{
-          width: 90,
-          height: 90,
+          width: "95px",
+          height: "95px",
+
           objectFit: "contain",
-          mixBlendMode: "multiply",
+
+          flexShrink: 0,
         }}
       />
     </Box>
