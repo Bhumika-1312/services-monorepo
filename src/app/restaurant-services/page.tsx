@@ -10,13 +10,6 @@ import FaqSection from './sections/home/FaqSection';
 export default function RestaurantServicesPage() {
   return (
     <>
-    <Box
-      sx={{
-        backgroundColor: '#ffffff',
-        minHeight: '100vh',
-        width: '100%',
-      }}
-    ></Box>
       <HeroSection />
       <CuisineSection />
       <FeaturedRestaurantsSection />

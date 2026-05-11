@@ -15,35 +15,27 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import StarIcon from '@mui/icons-material/Star';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
-/**
- * Replace the image paths below with your own images.
- * Example:
- * image: '/images/restaurants/lambroisie.jpg'
- */
 const restaurants = [
   {
     name: "L'Ambroisie",
     location: 'Texas (Austin)',
     cuisine: 'Contemporary French',
     rating: '4.9',
-    image:
-      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/restaurant/lambroisie.jpg',
   },
   {
     name: 'Terra & Mare',
     location: 'Indianapolis',
     cuisine: 'Sustainable Seafood',
     rating: '4.8',
-    image:
-      'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/restaurant/terra-mare.jpg',
   },
   {
     name: 'Sora Omakase',
     location: 'California',
     cuisine: 'High-End Japanese',
     rating: '4.9',
-    image:
-      'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/restaurant/sora-omakase.jpg',
   },
 ];
 
@@ -56,7 +48,6 @@ export default function FeaturedRestaurantsSection() {
       }}
     >
       <Container maxWidth="xl">
-        {/* Header */}
         <Box
           sx={{
             mb: 5,
@@ -115,7 +106,6 @@ export default function FeaturedRestaurantsSection() {
           </Box>
         </Box>
 
-        {/* Cards */}
         <Grid container spacing={3}>
           {restaurants.map((restaurant) => (
             <Grid
@@ -132,19 +122,17 @@ export default function FeaturedRestaurantsSection() {
                   boxShadow: 'none',
                 }}
               >
-                {/* Image Section */}
                 <Box sx={{ position: 'relative' }}>
                   <CardMedia
                     component="img"
                     image={restaurant.image}
                     alt={restaurant.name}
                     sx={{
-                      height: 230,
+                      height: 256,
                       objectFit: 'cover',
                     }}
                   />
 
-                  {/* Rating Badge */}
                   <Box
                     sx={{
                       position: 'absolute',
@@ -179,7 +167,6 @@ export default function FeaturedRestaurantsSection() {
                   </Box>
                 </Box>
 
-                {/* Content */}
                 <CardContent
                   sx={{
                     p: 2.5,
@@ -188,7 +175,6 @@ export default function FeaturedRestaurantsSection() {
                     },
                   }}
                 >
-                  {/* Name */}
                   <Typography
                     sx={{
                       fontSize: '1.75rem',
@@ -201,7 +187,6 @@ export default function FeaturedRestaurantsSection() {
                     {restaurant.name}
                   </Typography>
 
-                  {/* Location */}
                   <Box
                     sx={{
                       display: 'flex',
@@ -227,7 +212,6 @@ export default function FeaturedRestaurantsSection() {
                     </Typography>
                   </Box>
 
-                  {/* Cuisine */}
                   <Typography
                     sx={{
                       fontSize: '0.75rem',
@@ -238,7 +222,6 @@ export default function FeaturedRestaurantsSection() {
                     {restaurant.cuisine}
                   </Typography>
 
-                  {/* Button */}
                   <Button
                     fullWidth
                     variant="outlined"

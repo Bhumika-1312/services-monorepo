@@ -8,8 +8,8 @@ export default function HeroSection() {
     <Box
       sx={{
         position: 'relative',
-        minHeight: '100vh',
-        backgroundImage: `url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80')`,
+        height: '994px',
+        backgroundImage: "url('/images/restaurant/home-hero.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
