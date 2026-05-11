@@ -3,10 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import {
-  Box,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -60,18 +57,33 @@ export default function Navbar() {
           justifyContent: "space-between",
         }}
       >
-        <Box
-          sx={{
-            width: 42,
-            height: 26,
-
-            background: "#E8E8E8",
-
-            borderRadius: "3px",
-
-            flexShrink: 0,
+        <Link
+          href="/cleaning-booking"
+          style={{
+            textDecoration: "none",
           }}
-        />
+        >
+          <Box
+            sx={{
+              width: 42,
+              height: 26,
+
+              background: "#E8E8E8",
+
+              borderRadius: "3px",
+
+              flexShrink: 0,
+
+              cursor: "pointer",
+
+              transition: "0.2s ease",
+
+              "&:hover": {
+                opacity: 0.8,
+              },
+            }}
+          />
+        </Link>
 
         <Box
           sx={{
@@ -100,13 +112,9 @@ export default function Navbar() {
                   sx={{
                     fontSize: "13px",
 
-                    color: active
-                      ? "#6C00AA"
-                      : "#666",
+                    color: active ? "#6C00AA" : "#666",
 
-                    fontWeight: active
-                      ? 600
-                      : 400,
+                    fontWeight: active ? 600 : 400,
 
                     cursor: "pointer",
 
