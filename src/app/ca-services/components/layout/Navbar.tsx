@@ -44,7 +44,6 @@ export default function Navbar() {
             justifyContent: 'space-between',
           }}
         >
-          {/* Logo - Clicking FinTrust CA goes to Home Page */}
           <Link
             href="/ca-services"
             style={{
@@ -63,7 +62,6 @@ export default function Navbar() {
             </Typography>
           </Link>
 
-          {/* Navigation Links */}
           <Box
             sx={{
               display: { xs: 'none', md: 'flex' },
@@ -106,7 +104,6 @@ export default function Navbar() {
             })}
           </Box>
 
-          {/* Book Consultation Button */}
           <Link
             href="/ca-services/booking"
             style={{
