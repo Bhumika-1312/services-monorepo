@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import HeroSection from './sections/home/HeroSection';
 import CuisineSection from './sections/home/CuisineSection';
 import FeaturedRestaurantsSection from './sections/home/FeaturedRestaurantsSection';
