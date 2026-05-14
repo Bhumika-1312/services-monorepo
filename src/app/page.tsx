@@ -14,6 +14,7 @@ export default function Home() {
         <Link href="/cleaning-booking">Cleaning Booking</Link>
         <Link href="/restaurant-services">Restaurant Services</Link>
         <Link href="/ca-services">CA Services</Link>
+        <Link href="/dental-services">Dental Services</Link>
       </Box>
     </Container>
   );
