@@ -1,25 +1,20 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import {
-  Box,
-  Button,
-  Container,
-  Typography,
-} from '@mui/material';
+import Link from "next/link";
+import { Box, Button, Container, Typography } from "@mui/material";
 
 const stats = [
   {
-    number: '12+',
-    label: 'Years of service and clinical work',
+    number: "12+",
+    label: "Years of service and clinical work",
   },
   {
-    number: '35',
-    label: 'Certified specialists in various fields',
+    number: "35",
+    label: "Certified specialists in various fields",
   },
   {
-    number: '10K+',
-    label: 'Happy smiling clients',
+    number: "10K+",
+    label: "Happy smiling clients",
   },
 ];
 
@@ -27,38 +22,38 @@ export default function HeroSection() {
   return (
     <Box
       sx={{
-        backgroundColor: '#f8fafc',
+        backgroundColor: "#f8fafc",
         pb: { xs: 8, md: 12 },
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth={false} disableGutters sx={{ width: "100%" }}>
         <Box
           sx={{
-            position: 'relative',
+            position: "relative",
             height: { xs: 620, md: 780 },
-            overflow: 'visible',
+            overflow: "visible",
             backgroundImage:
               'linear-gradient(rgba(48, 58, 126, 0.72), rgba(48, 58, 126, 0.72)), url("/images/dental-services/hero-bg.jpg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            display: 'flex',
-            justifyContent: 'center',
-            textAlign: 'center',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            display: "flex",
+            justifyContent: "center",
+            textAlign: "center",
           }}
         >
           <Box
             sx={{
-              width: '100%',
-              maxWidth: '820px',
-              pt: { xs: '180px', md: '170px' },
+              width: "100%",
+              maxWidth: "820px",
+              pt: { xs: "180px", md: "170px" },
               px: 3,
             }}
           >
             <Typography
               sx={{
-                fontSize: '0.82rem',
+                fontSize: "0.82rem",
                 fontWeight: 600,
-                color: '#ffffff',
+                color: "#ffffff",
                 mb: 4,
               }}
             >
@@ -68,14 +63,14 @@ export default function HeroSection() {
             <Typography
               sx={{
                 fontSize: {
-                  xs: '3rem',
-                  sm: '4.2rem',
-                  md: '6rem',
+                  xs: "3rem",
+                  sm: "4.2rem",
+                  md: "6rem",
                 },
                 fontWeight: 700,
                 lineHeight: 0.98,
-                letterSpacing: '-0.03em',
-                color: '#ffffff',
+                letterSpacing: "-0.03em",
+                color: "#ffffff",
                 mb: 4,
               }}
             >
@@ -86,12 +81,12 @@ export default function HeroSection() {
 
             <Typography
               sx={{
-                fontSize: '1.12rem',
+                fontSize: "1.12rem",
                 lineHeight: 2,
                 fontWeight: 400,
-                color: 'rgba(255,255,255,0.88)',
-                maxWidth: '760px',
-                mx: 'auto',
+                color: "rgba(255,255,255,0.88)",
+                maxWidth: "760px",
+                mx: "auto",
                 mb: 5,
               }}
             >
@@ -101,23 +96,23 @@ export default function HeroSection() {
 
             <Link
               href="/dental-services/booking"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
             >
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: '#ffffff',
-                  color: '#2f3fb2',
-                  borderRadius: '999px',
+                  backgroundColor: "#ffffff",
+                  color: "#2f3fb2",
+                  borderRadius: "999px",
                   px: 4.5,
                   py: 1.35,
-                  fontSize: '0.9rem',
+                  fontSize: "0.9rem",
                   fontWeight: 600,
-                  textTransform: 'none',
-                  boxShadow: 'none',
-                  '&:hover': {
-                    backgroundColor: '#f3f4f6',
-                    boxShadow: 'none',
+                  textTransform: "none",
+                  boxShadow: "none",
+                  "&:hover": {
+                    backgroundColor: "#f3f4f6",
+                    boxShadow: "none",
                   },
                 }}
               >
@@ -128,23 +123,23 @@ export default function HeroSection() {
 
           <Box
             sx={{
-              position: 'absolute',
-              left: '50%',
-              bottom: '-36px',
-              transform: 'translateX(-50%)',
+              position: "absolute",
+              left: "50%",
+              bottom: "-36px",
+              transform: "translateX(-50%)",
               width: {
-                xs: '92%',
-                md: '76%',
+                xs: "92%",
+                md: "76%",
               },
-              backgroundColor: '#ffffff',
-              borderRadius: '8px',
-              boxShadow: '0 20px 45px rgba(15, 23, 42, 0.08)',
-              display: 'grid',
+              backgroundColor: "#ffffff",
+              borderRadius: "8px",
+              boxShadow: "0 20px 45px rgba(15, 23, 42, 0.08)",
+              display: "grid",
               gridTemplateColumns: {
-                xs: '1fr',
-                md: 'repeat(3, 1fr)',
+                xs: "1fr",
+                md: "repeat(3, 1fr)",
               },
-              overflow: 'hidden',
+              overflow: "hidden",
             }}
           >
             {stats.map((stat, index) => (
@@ -153,23 +148,23 @@ export default function HeroSection() {
                 sx={{
                   py: { xs: 3, md: 3.5 },
                   px: 3,
-                  textAlign: 'center',
+                  textAlign: "center",
                   borderRight:
                     index !== stats.length - 1
-                      ? { md: '1px solid #eef2f7' }
-                      : 'none',
+                      ? { md: "1px solid #eef2f7" }
+                      : "none",
                   borderBottom:
                     index !== stats.length - 1
-                      ? { xs: '1px solid #eef2f7', md: 'none' }
-                      : 'none',
+                      ? { xs: "1px solid #eef2f7", md: "none" }
+                      : "none",
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: { xs: '2.2rem', md: '3rem' },
+                    fontSize: { xs: "2.2rem", md: "3rem" },
                     fontWeight: 700,
                     lineHeight: 1,
-                    color: '#2440b3',
+                    color: "#2440b3",
                     mb: 1,
                   }}
                 >
@@ -178,11 +173,11 @@ export default function HeroSection() {
 
                 <Typography
                   sx={{
-                    fontSize: '0.82rem',
+                    fontSize: "0.82rem",
                     lineHeight: 1.7,
-                    color: '#8b95a7',
-                    maxWidth: '160px',
-                    mx: 'auto',
+                    color: "#8b95a7",
+                    maxWidth: "160px",
+                    mx: "auto",
                   }}
                 >
                   {stat.label}
