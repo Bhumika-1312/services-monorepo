@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import {
   Box,
   Card,
@@ -14,31 +15,37 @@ const doctors = [
     name: 'Mia Armstrong',
     role: 'Dental Technician',
     image: '/images/dental-services/mia-armstrong.jpg',
+    slug: 'mia-armstrong',
   },
   {
     name: 'Jonathan Jassey',
     role: 'Dental Technician',
     image: '/images/dental-services/jonathan-jassey.jpg',
+    slug: 'jonathan-jassey',
   },
   {
     name: 'Jamilet Alegria',
     role: 'Dental Technician',
     image: '/images/dental-services/jamilet-alegria.jpg',
+    slug: 'jamilet-alegria',
   },
   {
     name: 'Leslie Alexander',
     role: 'Dental Technician',
     image: '/images/dental-services/leslie-alexander.jpg',
+    slug: 'leslie-alexander',
   },
   {
     name: 'Guy Hawkins',
     role: 'Dental Technician',
     image: '/images/dental-services/guy-hawkins.jpg',
+    slug: 'guy-hawkins',
   },
   {
     name: 'Jane Cooper',
     role: 'Dental Technician',
     image: '/images/dental-services/jane-cooper.jpg',
+    slug: 'jane-cooper',
   },
 ];
 
@@ -93,66 +100,106 @@ export default function TeamGridSection() {
             gap: 3,
           }}
         >
-          {doctors.map((doctor) => (
-            <Card
-              key={doctor.name}
-              elevation={0}
-              sx={{
-                borderRadius: '10px',
-                overflow: 'hidden',
-                backgroundColor: '#ffffff',
-                border: '1px solid #eef2f7',
-              }}
-            >
-              <Box
-                component="img"
-                src={doctor.image}
-                alt={doctor.name}
-                sx={{
-                  width: '100%',
-                  height: 308,
-                  objectFit: 'cover',
+          {doctors.map((doctor) => {
+            const href =
+              doctor.slug === 'jonathan-jassey'
+                ? '/dental-services/doctors/jonathan-jassey'
+                : '#';
+
+            return (
+              <Link
+                key={doctor.name}
+                href={href}
+                style={{
+                  textDecoration: 'none',
+                  display: 'block',
+                  pointerEvents:
+                    doctor.slug === 'jonathan-jassey'
+                      ? 'auto'
+                      : 'none',
                 }}
-              />
-
-              <Box sx={{ p: 2.5 }}>
-                <Typography
+              >
+                <Card
+                  elevation={0}
                   sx={{
-                    fontSize: '1rem',
-                    fontWeight: 500,
-                    color: '#1f2937',
-                    mb: 0.5,
+                    borderRadius: '10px',
+                    overflow: 'hidden',
+                    backgroundColor: '#ffffff',
+                    border: '1px solid #eef2f7',
+                    cursor:
+                      doctor.slug === 'jonathan-jassey'
+                        ? 'pointer'
+                        : 'default',
+                    height: '100%',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform:
+                        doctor.slug === 'jonathan-jassey'
+                          ? 'translateY(-4px)'
+                          : 'none',
+                      boxShadow:
+                        doctor.slug === 'jonathan-jassey'
+                          ? '0 12px 30px rgba(15, 23, 42, 0.08)'
+                          : 'none',
+                      borderColor:
+                        doctor.slug === 'jonathan-jassey'
+                          ? '#dbe4f0'
+                          : '#eef2f7',
+                    },
                   }}
                 >
-                  {doctor.name}
-                </Typography>
+                  <Box
+                    component="img"
+                    src={doctor.image}
+                    alt={doctor.name}
+                    sx={{
+                      width: '100%',
+                      height: 308,
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  />
 
-                <Typography
-                  sx={{
-                    fontSize: '0.72rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
-                    color: '#9ca3af',
-                    mb: 1.5,
-                  }}
-                >
-                  {doctor.role}
-                </Typography>
+                  <Box sx={{ p: 2.5 }}>
+                    <Typography
+                      sx={{
+                        fontSize: '1rem',
+                        fontWeight: 500,
+                        color: '#1f2937',
+                        mb: 0.5,
+                      }}
+                    >
+                      {doctor.name}
+                    </Typography>
 
-                <Box
-                  sx={{
-                    display: 'flex',
-                    gap: 1,
-                    color: '#2440b3',
-                  }}
-                >
-                  <LinkedInIcon sx={{ fontSize: 16 }} />
-                  <CloseIcon sx={{ fontSize: 16 }} />
-                </Box>
-              </Box>
-            </Card>
-          ))}
+                    <Typography
+                      sx={{
+                        fontSize: '0.72rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.06em',
+                        textTransform: 'uppercase',
+                        color: '#9ca3af',
+                        mb: 1.5,
+                      }}
+                    >
+                      {doctor.role}
+                    </Typography>
+
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        gap: 1,
+                        color: '#2440b3',
+                      }}
+                    >
+                      <LinkedInIcon sx={{ fontSize: 16 }} />
+                      <CloseIcon sx={{ fontSize: 16 }} />
+                    </Box>
+                  </Box>
+                </Card>
+              </Link>
+            );
+          })}
         </Box>
       </Container>
     </Box>
