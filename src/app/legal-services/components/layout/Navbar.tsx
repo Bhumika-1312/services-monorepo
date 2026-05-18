@@ -111,7 +111,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/legal-services/contact"
+              href="/legal-services/consultation"
               style={{ textDecoration: 'none' }}
             >
               <Button
